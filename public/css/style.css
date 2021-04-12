@@ -1,0 +1,39 @@
+* {
+    margin: auto;
+}
+
+.hide {
+    display: none;
+}
+
+header {
+    padding: 2%;
+}
+
+footer,
+header {
+    background-color: rgb(108, 117, 125);
+}
+
+footer a {
+    text-decoration: none;
+    color: black;
+    font-size: 150%;
+}
+
+section {
+    margin: 1em;
+    border-image-repeat: round;
+    text-align: justify;
+}
+
+i {
+    color: black;
+    font-size: 25px;
+    margin-top: 2%;
+}
+
+.imgAvatar {
+    width: 50px;
+    height: 50px;
+}
