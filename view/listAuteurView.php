@@ -1,11 +1,11 @@
 <table class="table">
-    <thead class="table-dark">
+    <thead>
         <tr>
-            <th>Identifiant</th>
-            <th>Nom</th>
-            <th>Prénom</th>
-            <th>Date de naissance</th>
-            <th> Identifiant pays</th>
+            <th>IDENTIFIANT</th>
+            <th>NOM</th>
+            <th>PRENOM</th>
+            <th>DATE DE NAISSANCE</th>
+            <th>IDENTIFIANT PAYS</th>
         </tr>
     </thead>
     <tbody>

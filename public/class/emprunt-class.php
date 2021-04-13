@@ -1,35 +1,35 @@
 <?php
 
-    class LIVRE{
+    class EMPRUNT{
         //déclaration des attributs
-        private $id_l;
-        private $titre_l;
-        private $annee_l;
-        private $resume_l;
-        private $id_t;
+        private $id_em;
+        private $date_em;
+        private $delais_em;
+        private $id_i;
+        private $ref_e;
 
         
-        public function id_l(){return $this->id_l;}
-        public function titre_l(){return $this->titre_l;}
-        public function annee_l(){return $this->annee_l;}
-        public function resume_l(){return $this->resume_l;}
-        public function id_t(){return $this->id_t;} 
+        public function id_em(){return $this->id_em;}
+        public function date_em(){return $this->date_em;}
+        public function delais_em(){return $this->delais_em;}
+        public function id_i(){return $this->id_i;}
+        public function ref_e(){return $this->ref_e;} 
         
         //déclaration des Setter
-        public function setid_l($id){
-            $this->id_l=(int) $id;
+        public function setid_em($id){
+            $this->id_em=(int) $id;
         }
-        public function settitre_l($name){
-            $this->titre_l=$name;
+        public function setdate_em($date){
+            $this->date_em=$date;
         }
-        public function setannee_l($surname){
-            $this->annee_l=$surname;
+        public function setdelais_em($delais){
+            $this->delais_em=$delais;
         }
-        public function setresume_l($mail){
-            $this->resume_l=$mail;
+        public function setid_i($id_i){
+            $this->id_i=$id_i;
         }
-        public function setid_t($avat){
-            $this->id_t=$avat;
+        public function setref_e($ref){
+            $this->ref_e=$ref;
         }
 
         //HYDRATATION
@@ -43,7 +43,7 @@
         }
     }
 
-    class LivreManager{
+    class EmpruntManager{
         private function dbConnect(){
             // j'initialise un variable $bdd avec un l'objet PDO qui me permet de me connecter
             $bdd= new PDO('mysql:host=localhost;dbname=livre;charset=utf8','root','', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
@@ -55,27 +55,27 @@
             return $bdd;
         }
 
-        public function getLivres(){
-            $livres=[];
+        public function getEmprunts(){
+            $emprunts=[];
             $db=$this->dbConnect();
-            $req=$db->query('SELECT * FROM livre'); /* pas besoin d execute avec query */
+            $req=$db->query('SELECT * FROM emprunt'); /* pas besoin d execute avec query */
             while($data = $req->fetch(PDO::FETCH_ASSOC)){
-                $book = new LIVRE;
-                $book->hydrate($data);
-                $livres[]=$book;
+                $em = new EMPRUNT;
+                $em->hydrate($data);
+                $emprunts[]=$em;
             }
-            return $livres;
+            return $emprunts;
         }
 
-        public function getLivre($id){
+        public function getEmprunt($id){
             
             $db=$this->dbConnect();
-            $req=$db->prepare('SELECT * FROM livre WHERE id_l=?');
+            $req=$db->prepare('SELECT * FROM emprunt WHERE id_em=?');
             $req->execute(array($id));
             $data= $req->fetch(PDO::FETCH_ASSOC);
-            $book= new LIVRE();
-            $book->hydrate($data);
-            return $book;
+            $em= new EMPRUNT();
+            $em->hydrate($data);
+            return $em;
         }
     }
 ?>

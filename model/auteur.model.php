@@ -42,20 +42,16 @@
 
     class AuteurManager{
         private function dbConnect(){
-            // j'initialise un variable $bdd avec un l'objet PDO qui me permet de me connecter
+          
             $bdd= new PDO('mysql:host=localhost;dbname=livre;charset=utf8','root','', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-            /*                      |               |               |                    |=>array le tableau contenant l'option des erreurs 
-                                    |               |               |=>encryptage chartset=utf8
-                                    |               |=>dbnam = nom de la base
-                                    |=> host = l'hôte */
-
+           
             return $bdd;
         }
 
         public function getAuthors(){
             $authors=[];
             $db=$this->dbConnect();
-            $req=$db->query('SELECT * FROM auteur'); /* pas besoin d execute avec query */
+            $req=$db->query('SELECT * FROM auteur'); 
             while($data = $req->fetch(PDO::FETCH_ASSOC)){
                 $aut = new Auteur;
                 $aut->hydrate($data);

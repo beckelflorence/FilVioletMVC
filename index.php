@@ -1,9 +1,8 @@
 <?php
 
-//inclure le fichier d'entête
 include("header.php");
 ?>
-<section class='container-fluid text-center my-5'>
+<section class= "section1">
     <?php
     require 'controller/controller.auteur.php';
     if (isset($_GET['action'])) {
@@ -15,14 +14,14 @@ include("header.php");
             case 'listAuteur':
                 listAuthors();
                 break;
-            case 'listLivre':
-                listLivre();
+            case 'emprunt':
+                emprunt();
                 break;
             case 'auteur': {
                     if (isset($_GET['id'])) {
                         author();
                     } else {
-                        echo 'pas d\'identifiant selectionné';
+                        echo 'Pas d\'identifiant selectionné';
                     }
                     break;
                 }
@@ -45,25 +44,21 @@ include("header.php");
     } else {
         if (isset($_SESSION['id_user'])) {
             echo '  
-                <div class="row">
-                    <h2 class="col-12">
-                        Bienvenue :)
+                <div>
+                    <h2>
+                        Bienvenue
                     </h2>
                 </div>
             ';
         } else {
             echo '  
-                    <div class="row">
-                        <h2 class="col-12">
-                            Bienvenue !!
+                    <div>
+                        <h2>
+                            Bienvenue
                         </h2>
                         <hr>
                         <h3>
-                            Veuillez-vous connecter
-                            <br>
-                            /
-                            <br>
-                            Vous Enregistrer
+                            Connectez-vous
                         </h3>
                     </div>
                 ';

@@ -9,8 +9,8 @@
     <?php
         $users=$userManager->getAll();
     ?>
-    <table class="table borderPerso">
-        <thead class="bg-secondary">
+    <table class="tableuser">
+        <thead class="theaduser">
             <th>IDENTIFIANT</th>
             <th>AVATAR</th>
             <th>NOM - PRÉNOM</th>
@@ -18,22 +18,22 @@
             <th>MODIFIER</th>
             <th>SUPPRIMER</th>
         </thead>
-        <tbody class="bg-white">
+        <tbody >
             <?php
                 foreach ($users as $value){
                     echo '
                         <tr>
                             <td>'.$value->id_user().'</td>
-                            <td><img src="http://localhost/mvc/public/images/upload/'.$value->avatar().'" alt="avatar" class="imgAvatar"></td>
+                            <td class="imgavatar"><img src="public/images/upload/'.$value->avatar().'" class="imgAvatar"></td>
                             <td>'.$value->nom_u().' - '.$value->prenom_u().'</td>
                             <td>'.$value->mail_u().'</td>
                             <td>
-                                <a href="http://localhost/mvc/index.php?action=formModif&id='.$value->id_user().'">
+                                <a href="index.php?action=formModif&id='.$value->id_user().'">
                                     <i class="fas fa-user-edit"></i>
                                 </a>
                             </td>
                             <td>
-                                <a href="http://localhost/mvc/index.php?action=suppr&id='.$value->id_user().'">
+                                <a href="index.php?action=suppr&id='.$value->id_user().'">
                                     <i class="fas fa-user-slash"></i>
                                </a>
                             </td>

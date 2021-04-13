@@ -1,8 +1,6 @@
 <?php
     require_once 'model/auteur.model.php';
-    require_once 'public/class/livre-class.php';
-/*        |-> pour appeler 1 SEUL fois le fichiers model/auteur.model.php  
- */
+    require_once 'public/class/emprunt-class.php';
 
     function listAuthors(){
         $authorManager=new AuteurManager();
@@ -10,10 +8,10 @@
         require 'view/listAuteurView.php';
     }
 
-    function listLivre(){
-        $livreManager=new LivreManager('livre');
-        $livres = $livreManager->getLivres();
-        require 'view/listLivreView.php';
+    function Emprunt(){
+        $livreManager=new EmpruntManager('livre');
+        $livres = $livreManager->getEmprunts();
+        require 'view/empruntView.php';
     }
 
     function author(){

@@ -23,7 +23,7 @@
             if (password_verify($_POST['password'],$user->password_u())){
                 $_SESSION['mail_u']=$user->mail_u();
                 $_SESSION['id_user']=$user->id_user();
-                header('Location: http://localhost/mvc/index.php');
+                header('Location: index.php');
             }else{     
                     echo '<h2>Mauvais Mot De Passe</h2>';
             }

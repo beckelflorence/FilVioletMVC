@@ -53,7 +53,7 @@ $userManager = new UserManager($bdd);
                 $userManager->add($user);
                 $_SESSION['mail_u'] = $user->mail_u();
                 $_SESSION['id_user'] = $user->id_user();
-                header("Location: http://localhost/mvc/public/pages/deconnexion.php");
+                header("Location: http://localhost/mvcFlo/public/pages/deconnexion.php");
             } else {
                 echo '<h2>Les mot de passe ne correspondent pas</h2>';
             }
